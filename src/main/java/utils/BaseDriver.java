@@ -1,6 +1,7 @@
 package utils;
 
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -14,15 +15,14 @@ public class BaseDriver {
     public static String environment;
 
     public static void getDriver() {
-//        if (driver == null) {
+
         switch (BaseDriver.getPropertyValue("browser")) {
             case "chrome":
-//                    WebDriverManager.chromedriver().setup();
-                System.setProperty("webdriver.chrome.driver", "C:\\Users\\sreek\\Downloads\\chromedriver_win32\\chromedriver.exe");
+                WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
                 break;
         }
-//        }
+
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
@@ -33,10 +33,7 @@ public class BaseDriver {
     }
 
     private static String getPropertyValue(String key) {
-        String path = "";
-
-
-        path = "./src/main/resources/configuration.properties";
+        String path = "./src/main/resources/configuration.properties";
         try {
             FileInputStream fileInputStream = new FileInputStream(path);
             prop = new Properties();
