@@ -42,6 +42,6 @@ public class LoginStepDefinition extends BaseDriver {
 
     @Then("^User should close the browser$")
     public void user_should_close_the_browser() {
-
+        driver.close();
     }
 }
