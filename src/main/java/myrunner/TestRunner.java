@@ -10,7 +10,7 @@ import org.testng.annotations.DataProvider;
         features = "src/main/java/features",
         glue = {"parallel"},
         plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-                "timeline:test-output-thread/"})
+        })
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 
