@@ -5,3 +5,4 @@ test-output-thread
 CucumberTestNG.iml
 .*pdf
 .*/test-output/
+test-reports*
